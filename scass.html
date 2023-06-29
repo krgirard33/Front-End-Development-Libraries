@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Build a Survey Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <style type="text/scss">
+    .header {
+      text-align: center;
+    }
+    .blog-post,
+    h2 {
+      color: red;
+    }
+    
+    @mixin border-radius($radius) {
+      -webkit-border-radius: $radius;
+      -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+      border-radius: $radius;
+    }
+
+    #awesome {
+      width: 150px;
+      height: 150px;
+      background-color: green;
+      @include border-radius(15px);
+    }
+    
+    @for $i from 1 to 6 {
+      .text-#{$i} {
+        font-size: 15px * $i;
+      }
+    }
+
+    @mixin border-stroke($val) {
+  @if $val == light {
+    border: 1px solid black;
+  }
+  @else if $val == medium {
+    border: 3px solid black;
+  }
+  @else if $val == heavy {
+    border: 6px solid black;
+  }
+  @else {
+    border: none;
+  }
+  #box {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    @include border-stroke(medium);
+  }
+
+  $colors: (color1: blue, color2: black, color3: red);
+
+  @each $key, $color in $colors {
+    .#{$color}-bg {background-color: $color;}
+  }
+
+  $x: 1;
+  @while $x < 6 {
+  . text-#{$x} {font-size: 15px * $x;}
+    $x: $x + 1;
+  }
+}
+  </style>
+
+  <h1 class="header">Learn Sass</h1>
+  <div class="blog-post">
+    <h2>Some random title</h2>
+    <p>This is a paragraph with some random text in it</p>
+  </div>
+  <div class="blog-post">
+    <h2>Header #2</h2>
+    <p>Here is some more random text.</p>
+  </div>
+  <div class="blog-post">
+    <h2>Here is another header</h2>
+    <p>Even more random text within a paragraph</p>
+  </div>
+
+  // border-radius
+  <div id="awesome"></div>
+
+  // increase font size
+  <div>
+    <p class="text-1">Hello</p>
+    <p class="text-2">Hello</p>
+    <p class="text-3">Hello</p>
+    <p class="text-4">Hello</p>
+    <p class="text-5">Hello</p>
+  </div>
+
+  // box if else
+  <div id="box"></div>
+
+  // colors
+  div class="blue-bg"></div>
+  <div class="black-bg"></div>
+  <div class="red-bg"></div>
+
+  // font-size while
+  <p class="text-1">Hello</p>
+  <p class="text-2">Hello</p>
+  <p class="text-3">Hello</p>
+  <p class="text-4">Hello</p>
+  <p class="text-5">Hello</p>
+
+  <p>To import a file named "_variables.scss" into the main scss file, @import "variables".</p>
+
+  <h4> How to extend a class in scss:</h4>
+  <p>.info{<br>
+    width: 200px;<br>
+    border: 1px solid black;<br>
+    margin: 0 auto;<br>
+  }<br>
+<br>
+  .info-important {<br>
+    @extend .info;<br>
+    background-color: magenta;<br>
+  }</p>
+
+</html>
