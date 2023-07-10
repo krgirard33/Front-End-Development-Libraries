@@ -5,14 +5,20 @@ class MyComponent extends React.Component {
       visibility: false
     };
     // Change code below this line
-    this.setState((state, props) => ({
-      visibility: state.visibility + props.true 
-    }))
+    this.toggleVisibility = this.toggleVisibility.bind(this);
     // Change code above this line
   }
   // Change code below this line
-  handleClick() {
-    
+  toggleVisibility() {
+    this.setState(state => {
+      if (state.visibility === true) {
+        return { visibility: false };
+      } else {
+        return { visibility: true };
+      }
+      // alt version
+      // visibility: !state.visibility
+    });
   }
   // Change code above this line
   render() {
